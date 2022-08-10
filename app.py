@@ -9,11 +9,9 @@ auth = HTTPBasicAuth()
 
 @auth.get_password
 def get_password(username):
-    table = {}
     for user in users:
-        table[user.username] = user.password
-    if username in table:
-        return table.get(username)
+        if user.username == username:
+            return user.password
     return None
 
 
